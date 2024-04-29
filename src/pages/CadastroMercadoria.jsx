@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { cadastrarMercadoria } from '../services/api'; // Importe a função para cadastrar mercadoria do seu arquivo api.js
+import "../App.css"
 
 const CadastroMercadoria = () => {
   const [descricao, setDescricao] = useState('');
@@ -25,26 +26,26 @@ const CadastroMercadoria = () => {
   };
 
   return (
-    <div>
-      <h2>Cadastro de Mercadoria</h2>
-      {mensagem && <p>{mensagem}</p>}
-      <form onSubmit={handleSubmit}>
-        <label>
-          Descrição:
-          <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
-        </label>
-        <label>
-          Preço:
-          <input type="number" value={preco} onChange={(e) => setPreco(e.target.value)} />
-        </label>
-        <label>
-          Quantidade em Estoque:
-          <input type="number" value={quantidadeEmEstoque} onChange={(e) => setQuantidadeEmEstoque(e.target.value)} />
-        </label>
-        <button type="submit">Cadastrar</button>
-      </form>
-    </div>
-  );
+    <div className="form-container">
+    <h2 className="form-title">Registro de Mercadoria</h2>
+    {mensagem && <p>{mensagem}</p>}
+    <form onSubmit={handleSubmit} className="form-body">
+      <label className="form-field">
+        Descripción:
+        <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} />
+      </label>
+      <label className="form-field">
+        Precio:
+        <input type="number" value={preco} onChange={(e) => setPreco(e.target.value)} />
+      </label>
+      <label className="form-field">
+        Cantidad en stock:
+        <input type="number" value={quantidadeEmEstoque} onChange={(e) => setQuantidadeEmEstoque(e.target.value)} />
+      </label>
+      <button type="submit" className="form-button">Registrar</button>
+    </form>
+  </div>
+);
 };
 
 export default CadastroMercadoria;

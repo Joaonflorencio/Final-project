@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { fetchMercadorias } from '../services/api'; // Importe a função para buscar mercadorias do seu arquivo api.js
+import "../App.css"
 
 const ListaMercadorias = () => {
   const [mercadorias, setMercadorias] = useState([]);
@@ -33,18 +34,31 @@ const ListaMercadorias = () => {
   }
 
   return (
-    <div>
-      <h2>Lista de Mercadorias</h2>
+    <div className="list-container">
+      <h2 className="list-title">Lista de Mercadorias</h2>
       {mercadorias.length === 0 ? (
         <p>Nenhuma mercadoria cadastrada.</p>
       ) : (
-        <ul>
-          {mercadorias.map((mercadoria) => (
-            <li key={mercadoria._id}>
-              <strong>{mercadoria.descricao}</strong> - Preço: {mercadoria.preco} - Estoque: {mercadoria.quantidadeEmEstoque}
-            </li>
-          ))}
-        </ul>
+        <table className="client-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Descrição</th>
+              <th>Preço</th>
+              <th>Quantidade em Estoque</th>
+            </tr>
+          </thead>
+          <tbody>
+            {mercadorias.map((mercadoria) => (
+              <tr key={mercadoria._id}>
+                <td>{mercadoria._id}</td>
+                <td>{mercadoria.descricao}</td>
+                <td>{mercadoria.preco}</td>
+                <td>{mercadoria.quantidadeEmEstoque}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       )}
     </div>
   );

@@ -1,11 +1,12 @@
 // src/components/Footer.js
 
 import React from 'react';
+import "../App.css"
 
 const Footer = () => {
   return (
     <footer>
-      <p>© 2024 Minha Aplicação. Todos os direitos reservados.</p>
+      <p>© 2024 Mi Aplicación. Todos los derechos reservados.</p>
     </footer>
   );
 };

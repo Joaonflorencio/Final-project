@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { fetchClientes } from '../services/api'; // Importe a função para buscar clientes do seu arquivo api.js
+import "../App.css"
 
 const ListaClientes = () => {
   const [clientes, setClientes] = useState([]);
@@ -32,22 +33,35 @@ const ListaClientes = () => {
     return <p>{error}</p>;
   }
 
-  return (
-    <div>
-      <h2>Lista de Clientes</h2>
-      {clientes.length === 0 ? (
-        <p>Nenhum cliente cadastrado.</p>
-      ) : (
-        <ul>
-          {clientes.map((cliente) => (
-            <li key={cliente._id}>
-              <strong>{cliente.nome}</strong> - {cliente.email} - {cliente.telefone}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-};
-
+     return (
+      <div className="list-container">
+        <h2 className="list-title">Lista de Clientes</h2>
+        {clientes.length === 0 ? (
+          <p>Nenhum cliente cadastrado.</p>
+        ) : (
+          <table className="client-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Telefone</th>
+              </tr>
+            </thead>
+            <tbody>
+              {clientes.map((cliente) => (
+                <tr key={cliente._id}>
+                  <td>{cliente._id}</td>
+                  <td>{cliente.nome}</td>
+                  <td>{cliente.email}</td>
+                  <td>{cliente.telefone}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    );
+  };
+  
 export default ListaClientes;

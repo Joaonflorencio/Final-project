@@ -5,6 +5,7 @@ import CadastroCliente from './pages/CadastroCliente';
 import CadastroMercadoria from './pages/CadastroMercadoria';
 import ListaClientes from './pages/ListaClientes';
 import ListaMercadorias from './pages/ListaMercadoria';
+import "./App.css"
 
 const App = () => {
   // Definindo um estado para controlar a visualização da página
@@ -33,27 +34,18 @@ const App = () => {
 
   return (
     <div>
-      <Header />
-      <nav>
-        <ul>
-          <li>
-            <button onClick={() => navigateTo('cadastro-cliente')}>Cadastro de Cliente</button>
-          </li>
-          <li>
-            <button onClick={() => navigateTo('cadastro-mercadoria')}>Cadastro de Mercadoria</button>
-          </li>
-          <li>
-            <button onClick={() => navigateTo('lista-clientes')}>Lista de Clientes</button>
-          </li>
-          <li>
-            <button onClick={() => navigateTo('lista-mercadorias')}>Lista de Mercadorias</button>
-          </li>
-        </ul>
-      </nav>
-      {renderPage()}
-      <Footer />
-    </div>
+    <Header />
+    <nav className="nav-container">
+      <button className="nav-button" onClick={() => navigateTo('cadastro-cliente')}>Registro de Cliente</button>
+      <button className="nav-button" onClick={() => navigateTo('cadastro-mercadoria')}>Registro de Mercadoria</button>
+      <button className="nav-button" onClick={() => navigateTo('lista-clientes')}>Lista de Clientes</button>
+      <button className="nav-button" onClick={() => navigateTo('lista-mercadorias')}>Lista de Mercadorias</button>
+    </nav>
+    {renderPage()}
+    <Footer />
+  </div>
   );
 };
+
 
 export default App;
