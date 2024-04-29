@@ -12,7 +12,7 @@ const CadastroCliente = () => {
     e.preventDefault();
     try {
       // Enviar os dados para o backend
-      await axios.post('http://localhost:5491/clientes', {
+      await axios.post('https://backend-final-project-javascript-dev-tpex.2.ie-1.fl0.io/clientes', {
         nome,
         email,
         telefone
